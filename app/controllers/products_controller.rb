@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
   def update
   end
-  git ad
+
   def destroy
   end
 end
