@@ -31,22 +31,26 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params)
+    if @product.user == current_user
+      @product.update(product_params)
       redirect_to products_path
     else
+      flash[:alert]= "Action impossible, ce n'est pas votre produit"
       render :edit
     end
   end
 
   def destroy
-    @product.destroy
-    redirect_to products_path
+    if @product.user == current_user
+      @product.destroy
+      redirect_to products_path
+    end
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :url, :tagline, :category)
+    params.require(:product).permit(:name, :url, :tagline, :category, :photo)
   end
 
   def find_product
