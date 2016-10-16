@@ -13,9 +13,16 @@
 boris = User.create!(email: 'boris@lewagon.org', password: 'testtest')
 seb = User.create!(email: 'seb@lewagon.org', password: 'testtest')
 
-Product.create!(user: boris, name: "Kudoz", url: "http://getkudoz.com", tagline: "Tinder for job search", category: 'education')
+kudoz = Product.create!(user: boris, name: "Kudoz", url: "http://getkudoz.com", tagline: "Tinder for job search", category: 'education')
 Product.create!(user: boris, name: "uSlide", url: "http://uslide.io", tagline: "Youtube sucks for education", category: 'education')
 Product.create!(user: seb, name: "Medpics", url: "http://medpics.com", tagline: "Share your diagnostics", category: 'tech')
+le_wagon = Product.create!(user: seb, name: "Le Wagon", url: "http://lewagon.com", tagline: "We bring coding skills to creative people", category: 'tech')
 
+# Upvotes?
+
+kudoz.upvotes.create! user: boris
+kudoz.upvotes.create! user: seb
+
+le_wagon.upvotes.create! user: seb
 
 

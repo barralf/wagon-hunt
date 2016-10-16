@@ -37,6 +37,18 @@
   font-size: 13px;
   line-height: 20px;
 }
+
+.product-upvoted, a.product-upvote.product-upvoted{
+  color: #5898f1;
+}
+
+.product-upvoted .product-arrow {
+  border-bottom-color: #5898f1;
+}
+a.product-upvote {
+  color: black;
+}
+
 .product-count {
   margin: 2px 0 0;
 }
@@ -86,6 +98,9 @@
 .product-upvote-upvoted .product-arrow {
   border-bottom-color: #5898f1;
 }
-// .product:hover .product-upvote { transform: scale(1.2) }
+a.product-upvote:hover, a.product-upvote:focus {
+  text-decoration: none;
+}
+.product:hover .product-upvote { transform: scale(1.2) }
 .product:hover .product-controls-hidden a { color: #E6E6E6 }
 .product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
