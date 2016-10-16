@@ -1,14 +1,42 @@
-<h1>All products</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1 class="text-center">All products</h1>
+      <% @products.each do |product| %>
 
-<p>
-  <%= link_to "Revenir à l'accueil", root_path, class: "btn btn-primary" %>
-  <%= link_to "Ajouter un produit", new_product_path, class: "btn btn-success" %>
-</p>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+            <div class='product-count'>95</div>
+          </div>
+          <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
+          <div class='product-body'>
+            <h3><%= product.name %></h3>
+            <p><%= product.tagline %></p>
+          </div>
+          <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+            <li>
+              <%= link_to product_path(product) do %>
+                <i class="fa fa-eye"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_product_path(product) do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
+            </li>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <%= link_to product.name, product_path(product) %> (<%= product.url %>)
-    </li>
-  <% end %>
-</ul>
+             <li>
+              <%= link_to product_path(product), methode: :delete do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            </li>
+
+          </ul>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
